@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import resList from "../utils/mockData";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -18,12 +19,14 @@ const Body = () => {
     );
     const json = await data.json();
 
-    setListOfRestaurants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurant(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    // setListOfRestaurants(
+    //   json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
+    // setFilteredRestaurant(
+    //   json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
+    setListOfRestaurants(resList);
+    setFilteredRestaurant(resList)
   };
   useEffect(() => {
     fetchData();
